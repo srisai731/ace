@@ -1,1 +1,221 @@
+#Welcome to php
+
+<html>
+<head>
+  <title>First PHP Program</title>
+</head>
+<body>
+  <h1>My PHP Page</h1>
+  <?php
+    echo"Welcome to PHP";
+   ?>
+</body>
+</html>
+
+#Control Structure While Loop
+
+<html>
+<head>
+   <title>While Loop</title>
+</head>
+<body>
+   <?php
+        $num=1;
+        while($num<=5)
+        {
+        echo $num."\n";
+             $num++;
+        }
+   ?>
+</body>
+</html>
+
+#Conditional Statement if statement
+
+<html>
+<head>
+   <title>If statement</title>
+</head>
+<body>
+   <?php
+        $x=12;
+        if($x>0)
+        {
+        echo "The number is positive";
+        }
+   ?>
+</body>
+</html>
+
+#Indexed Array create and manipulate array
+
+<html>
+<head>
+   <title>Indexed Array</title>
+</head>
+<body>
+   <?php
+   $fruits=array("Apple","Cherry","Grapes");
+    echo $ Fruits[0];
+   ?>
+</body>
+</html>
+
+#count the no. of words in string with using string function
+
+<html>
+<head>
+   <title>Count</title>
+</head>
+   <?php
+   $str = "I have Car";
+   $len = str_word_count($str);
+   echo $len;
+   ?>
+</html>
+
+#Inherit the member to super class in sub
+
+<html>
+<head>
+   <title>Inheritance</title>
+</head>
+   <?php
+   class Animal {
+            public $name;
+            public function eat()
+            {
+            echo"$this->name is eating.\n";
+            }
+           }
+   class Dog extends Animal {
+            public function bark()
+            {
+             echo"$this->name is barking.\n";
+            }
+           }
+            $dog=new Dog();
+            $dog->name="Buddy";
+            $dog->bark();
+   ?>
+</html>
+
+#Set cookies and read it
+
+<!DOCTYPE html>
+<head>
+    <title>SET COOKIES</title>
+</head>
+    <body style="background-color:pink;">
+    <?php
+    $cookie_name="username";
+    $cookie_value="Sai";
+
+    Setcookie($cookie_name,$cookie_value,time()+(86400*7),"/");
+
+    if(isset($_COOKIE[$cookie_name])) {
+    echo "Welcome back,".$_COOKIE[$cookie_name];
+    }else{
+    echo "Welcome Guest !";
+    }
+    ?>
+</body>
+</html>
+
+#Design a web page using following form controls bootstraps
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bootstrap Form with PHP</title>
+  <!-- Bootstrap 5CDN -->
+  <link href="https:??cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<h1>BOOTSTRAP FORM WITH PHP</h1> 
+<style>
+body{ background-color:pink}
+<body class="bg-light">
+</style>
+<div class="container mt-5">
+  <div class="card shadow lg">
+      <div class="card-header bg-primary text-white">
+          <h4 class="mb-0">User Information Form</h4>
+</div>
+<div class="card-body">
+   <form method="post">
+       <!-- Name Textbook -->
+       <div class="mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" name="name" id="name" required>
+</div>
+
+
+<!-- Gender Radio Buttons -->
+<form method="POST" action="">
+<label>
+    <input type="radio"
+name="gender" value="Male"> Male
+</label>
+<label>
+  <input type="radio"
+name="gender" value="Female"> Female
+</label>
+<label>
+  <input type="radio"
+name="gender" value="Other"> Other
+</label>
+<br><br>
+
+
+
+<!-- Hobbies Checkboxes -->
+<div class="mb-3">
+    <label class="form label">Hobbies</label><br>
+    <div class="form-check">
+         <input class="form-check-input" type="checkbox" name="hobbies[]" value="Reading">
+         <label class="form-check-label">Reading</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" name="hobbies[]" value="Music">
+  <label class="form-check-label">Music</label>
+</div>
+<div class="form-check">
+   <input class="form-check-input" type="checkbox" name="hobbies[]" value="Editing">
+  <label class="form-check-label">Editing</label>
+ </div>
+<div class="form-check">
+   <input class="form-check-input" type="checkbox" name="hobbies[]" value="Other">
+  <label class="form-check-label">Other</label>
+ </div>
+</div>
+
+<!-- Submit Button -->
+<div class="mb-3">
+     <button type="submit" name="submit" class="btn btn-success w-100">Submit</button>
+</div>
+</form>
+
+<!-- PHP Output Section -->
+<?php
+if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
+   $name= htmlspecialchars($_POST['name']);
+   $gender= isset($_POST['gender']) ? $_POST['gender'] : []; 
+   $hobbies= isset($_POST['hobbies']) ? $_POST['hobbies'] : [];
+
+
+   echo "<hr>";
+   echo "<h5 class='text-primary'>Form Submitted Successfully!</h5>";
+   echo "<p><strong>Name:</strong>$name</p>";
+   echo "<p><strong>Gender:</strong>$gender</p>";
+   echo "<p><strong>Hobbies:</strong>" . (!empty($hobbies) ? implode(",",$hobbies) : "None selected") . "</p>";
+}
+?>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
 
